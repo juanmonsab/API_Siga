@@ -48,5 +48,25 @@ public class Controller {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+    @PutMapping("/{codigo}")
+    public ResponseEntity<Estudiante> actualizarEstudiante(@PathVariable("codigo") int codigo, @RequestBody Estudiante estudianteActualizado) {
+        Estudiante estudianteExistente = null;
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getCodigo() == codigo) {
+                estudianteExistente = estudiante;
+                break;
+            }
+        }
+        if (estudianteExistente != null) {
+            estudianteExistente.setNombre(estudianteActualizado.getNombre());
+            estudianteExistente.setFacultad(estudianteActualizado.getFacultad());
+            estudianteExistente.setSemestre(estudianteActualizado.getSemestre());
+            return new ResponseEntity<>(estudianteExistente, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        }
+    }
 
 }
