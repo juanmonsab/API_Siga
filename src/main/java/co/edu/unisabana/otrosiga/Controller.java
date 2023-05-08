@@ -32,4 +32,21 @@ public class Controller {
         return new ResponseEntity<>(estudiantesPorFacultad, HttpStatus.OK);
     }
 
+    @DeleteMapping("/{codigo}")
+    public ResponseEntity<Estudiante> eliminarEstudiante(@PathVariable("codigo") int codigo) {
+        Estudiante estudianteEliminado = null;
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getCodigo() == codigo) {
+                estudianteEliminado = estudiante;
+                estudiantes.remove(estudiante);
+                break;
+            }
+        }
+        if (estudianteEliminado != null) {
+            return new ResponseEntity<>(estudianteEliminado, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
