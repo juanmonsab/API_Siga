@@ -8,5 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RestController
+@RequestMapping("/estudiantes")
 public class Controller {
+
+    private static final List<Estudiante> estudiantes = new ArrayList<>();
 }
