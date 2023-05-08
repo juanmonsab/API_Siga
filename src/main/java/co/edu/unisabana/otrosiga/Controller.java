@@ -13,4 +13,11 @@ import java.util.stream.Collectors;
 public class Controller {
 
     private static final List<Estudiante> estudiantes = new ArrayList<>();
+
+    @PostMapping("/")
+    public ResponseEntity<Estudiante> agregarEstudiante(@RequestBody Estudiante estudiante) {
+        estudiantes.add(estudiante);
+        return new ResponseEntity<>(estudiante, HttpStatus.CREATED);
+    }
+
 }
