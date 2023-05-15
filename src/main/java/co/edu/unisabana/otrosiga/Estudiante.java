@@ -4,12 +4,14 @@ public class Estudiante {
     private int codigo;
     private String nombre;
     private String facultad;
+    private String programa;
     private int semestre;
 
-    public Estudiante(int codigo, String nombre, String facultad, int semestre) {
+    public Estudiante(int codigo, String nombre, String facultad, String programa, int semestre) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.facultad = facultad;
+        this.programa = programa;
         this.semestre = semestre;
     }
 
@@ -37,6 +39,14 @@ public class Estudiante {
         this.facultad = facultad;
     }
 
+    public String getPrograma() {
+        return programa;
+    }
+
+    public void setPrograma(String programa) {
+        this.programa = programa;
+    }
+
     public int getSemestre() {
         return semestre;
     }
@@ -45,3 +55,4 @@ public class Estudiante {
         this.semestre = semestre;
     }
 }
+
